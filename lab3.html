@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Green Machine Lab 3</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/round-about.css" rel="stylesheet">
+    <link href="css/freelancer.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Green Machine</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="lab2.html">Lab 2</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="lab3.html">Lab 3</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="lab4.html">Lab 4</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="lab5.html">Lab 5</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="lab6.html">Lab 6</a>
+                    </li>
+                </ul>
+            </div> 
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+        <!-- Header -->
+    <header>
+        <div class="row" width="100%" style="padding-top:70px;">
+            <div class="col-sm-12">
+                <div class="intro-text">
+                    <span class="name">Lab 3</span>
+                    <hr class="star-light">
+                    <span class="skills"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Introduction Row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Introduction
+                    <small>Autonomous Wall Following and Object Detection</small>
+                </h1>
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-col col-md-6">
+                            <p> The goal of this lab was to begin creating autonomous wall following code, as well as ensuring the robot recognizes obstacles and stops before collision. In order to implement all the functionality for this week, the team broke the tasks into three scripts, which were worked on in teams of two.<a href="https://github.mit.edu/rss2017-team12/lab3"> Here is a link to the github repository with the code for this lab.</a> And <a href="https://drive.google.com/open?id=1A9W2GXWGmdcbe4KAOW08K8V6EnjfkV46YaMzxuV6Ajg"> here is a link to the Google Slides for this lab.</a></p>
+                        </div>
+                        <div class="footer-col col-md-3" style="vertical-align: middle">
+                            <img class="zoom-image img-responsive" src="Images/lab3/architecture.png" >
+                        </div>
+                        <div class="footer-col col-md-3" style="vertical-align: middle">
+                            <a href="https://github.mit.edu/rss2017-team12">
+                                <img class="img-circle img-responsive img-center" src="Images/icons/git.png"  width=100>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Obstacle Detection
+                    <small>safety.py</small>
+                </h1>
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-col col-md-6">
+                            <p>Chevy and Efe worked on a safety controller in charge of detecting obstacles directly in front of the robot (within a 60 degree cone) and stopping the racecar in response. The controller takes in data from the laser scanner attached to the racecar that is within the appropriate range (± 30 degrees) and filters it. The team decided on a distance at which an obstacle is considered too close and signals the robot to stop; that number was determined to be [1m] because it takes the robot some time to stop. If any reading indicates an obstacle within that distance, the robot is instructed to stop by sending a zero-speed command.</p>
+                        </div>
+                        <div class="footer-col col-md-3" style="vertical-align: middle">
+                            <img class="zoom-image img-responsive" src="Images/lab3/safety_map.png" >
+                        </div>
+                        <div class="video0 footer-col col-md-3">
+                              <video class="zoom-image thevideo0" width=200 loop>
+                                <source src="Videos/Lab3/Robot_Stopping.mp4" type="video/mp4">
+                              Your browser does not support the video tag.
+                              </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Wall Detection
+                    <small>wall-scanner.py</small>
+                </h1>
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-col col-md-6">
+                            <p>Raoul and Victor worked on a wall detector that provides information on where the wall is for the autonomous wall following code (see below). This detector also takes in information from the laser and returns the distance to the wall and angle from the wall. The detector takes all the measurements within the range ±30 to 135 degrees, determines the angle for each distance measurement, and uses RANSAC to create a linear model that represents the wall. Using that model, the detector can return a distance to the wall and angle from the wall.</p>
+                        </div>
+                        <div class="footer-col col-md-3" style="vertical-align: middle">
+                                <img class="zoom-image img-responsive" src="Images/lab3/scanner_pic.png"  width=185>
+                        </div>
+                        <div class="footer-col col-md-3" style="vertical-align: middle">
+                                <img class="zoom-image img-responsive" src="Images/lab3/diragram_2.png"  width=185>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Autonomous Wall Following
+                    <small>wall-follow.py</small>
+                </h1>
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-col col-md-6">
+                            <p>Nick and Liza worked on a PD controller that took the angle and distance from wall-scanner and attempted to make the robot drive in a straight line parallel to the wall. The initial attempt at a controller, which was proportional to the error in distance and the derivative of the error, worked very well in simulation, but produced erratic behavior with the actual racecar. Raoul and Efe then created a PID controller which controlled the error in both distance and steering angle.</p>
+                        </div>
+                        <div class="video2 footer-col col-md-3">
+                              <video class="zoom-image thevideo2" width=200 loop>
+                                <source src="Videos/Lab3/Robot_Following_Sim.mp4" type="video/mp4">
+                              Your browser does not support the video tag.
+                              </video>
+                        </div>
+                        <div class="video3 footer-col col-md-3">
+                              <video class="zoom-image thevideo3" width=200 loop>
+                                <source src="Videos/Lab3/Robot_Following.mp4" type="video/mp4">
+                              Your browser does not support the video tag.
+                              </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Team Communication
+                    <small>Dividing Tasks and Working in Small Teams</small>
+                </h1>
+                
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-col col-md-6">
+                            <p>This week, the team did much better dividing up the tasks. The work for the week was divided into three scripts, each of which was worked on by a pair. This turned out to be a very successful model, since the pairs shared information and interfaced well, but there were never too many people working on the same thing. However, there is still room for improvement. While working this week, the team spent too much time in the planning phase and starting coding very late. This created something of a time crunch near the end of the week. </p>
+                        </div>
+                        <div class="footer-col col-md-6">
+                            <p>In the future, the team should make a timeline for the week and determine when actual coding will begin. Sharing information was also important this week, as each team member has a different technical background, and improved but there were moment where a team member realized during an explanation that either what they were explaining was incorrect or that they did not understand it themselves. This needs to be corrected so the team is not confused.</p>
+                        </div>
+                     </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+    <br>
+    <br>
+    <!-- Footer -->
+    <footer class="text-center" style="width:100vw;">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-3">
+                        <h3>Class</h3>
+                        <p><a href="http://student.mit.edu/catalog/m6a.html#6.141">6.141/16.405</a>
+                            <br>Robotics: Science and Systems</p>
+                    </div>
+                    <div class="footer-col col-md-6" style="margin-top:20px;">
+                        <a href="https://github.mit.edu/rss2017-team12">
+                            <img class="img-circle img-responsive img-center" src="Images/icons/git.png"  width=100>
+                        </a>
+                    </div>
+                    <div class="footer-col col-md-3">
+                        <h3>About <a href="http://student.mit.edu/catalog/m6a.html#6.141">6.141/16.405</a></h3>
+                        <p>We all love <a href="http://student.mit.edu/catalog/m6a.html#6.141">6.141/16.405</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Green Machine
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- video hover play script -->
+    <script src="js/videoRun.js"></script>
+
+</body>
+
+
+</html>
